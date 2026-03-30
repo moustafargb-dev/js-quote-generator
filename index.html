@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Template</title>
+    <title>Quote Generator</title>
 
     <link rel="icon" type="image/png" href="./imgs/fav-icon.png" />
 
@@ -13,15 +13,12 @@
   </head>
   <body>
     <div class="container">
-      <div class="quote">
+      <div class="quote" id="quoteContainer">
         <div class="quote-text">
           <i class="fa-solid fa-quote-left quote-icon"></i>
-          <span class="quote-text" id="quote"
-            >What you are, is what you have been. What you will be , is what you
-            do now.</span
-          >
+          <span class="quote-text" id="quote"></span>
         </div>
-        <h2 class="quote-author" id="author">Bohood</h2>
+        <h2 class="quote-author" id="author"></h2>
         <div class="button-container">
           <button class="btn btn-twitter" id="twitterBtn">
             <i class="fa-brands fa-twitter"></i>
@@ -29,7 +26,10 @@
           <button class="btn" id="newQuoteBtn">New Quote</button>
         </div>
       </div>
+
+      <div class="loader" id="loader"></div>
     </div>
+    <script src="./js/quotes.js"></script>
     <script src="./js/script.js"></script>
   </body>
 </html>

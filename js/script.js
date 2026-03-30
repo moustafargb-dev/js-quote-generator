@@ -1,13 +1,25 @@
 // * select elements
+const quoteContainerEl = document.getElementById("quoteContainer");
 const quoteEl = document.getElementById("quote");
 const authorEl = document.getElementById("author");
-
+const loaderEl = document.getElementById("loader");
 const twitterBtn = document.getElementById("twitterBtn");
 const newQuoteBtn = document.getElementById("newQuoteBtn");
 
 let quotes = [];
+// * loading functions
+function showLoadingSpinner() {
+  loaderEl.classList.remove("d-none");
+  quoteContainerEl.classList.add("d-none");
+}
+function removeLoadingSpinner() {
+  loaderEl.classList.add("d-none");
+  quoteContainerEl.classList.remove("d-none");
+}
+
 // * get quotes from api
 async function getQuotes() {
+  showLoadingSpinner();
   const apiUrl = "https://dummyjson.com/quotes?limit=100";
 
   try {
@@ -16,8 +28,12 @@ async function getQuotes() {
     quotes = apiQuotes?.quotes || [];
 
     newQuote();
+    removeLoadingSpinner();
   } catch (error) {
-    console.log(error);
+    console.log("Error", error);
+    quotes = localQuotes;
+    newQuote();
+    removeLoadingSpinner();
   }
 }
 
