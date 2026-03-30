@@ -31,8 +31,16 @@ function newQuote() {
   else quoteEl.classList.remove("quote-long");
 }
 
+// * tweet the quote
+function tweetQuote() {
+  let tweetApi = `https://twitter.com/intent/tweet?text=${quoteEl.textContent} - ${authorEl.textContent}`;
+
+  window.open(tweetApi);
+}
+
 // * event listeners
 newQuoteBtn.addEventListener("click", newQuote);
+twitterBtn.addEventListener("click", tweetQuote);
 
 // * on load
 getQuotes();
